@@ -1,0 +1,18 @@
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--20px);
+	
+	background-color: var(--gray-800);
+	
+	span {
+		font-size: var(--20px);
+		padding-left: 1rem;
+		font-weight:  800;
+	}
+
+	img {
+		height: var(--30px);
+	}
+}
