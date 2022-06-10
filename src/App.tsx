@@ -1,6 +1,9 @@
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
+import { PostFeed } from './components/PostFeed';
+
 import styles from './App.module.scss';
+
 
 function App() {
   return (
@@ -9,7 +12,8 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <h3>Main</h3>
+          <PostFeed />
+          <PostFeed />
         </main>
       </div>
     </>
