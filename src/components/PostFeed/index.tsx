@@ -1,3 +1,4 @@
+import { Avatar } from '../Avatar'
 import { Comment } from '../Comment'
 import styles from './styles.module.scss'
 
@@ -6,7 +7,7 @@ export function PostFeed() {
     <article className={styles.post}>
       <header className={styles.profile}>
         <div className={styles.author}>
-          <img src="https://github.com/filipesaretta.png" />
+          <Avatar src="https://github.com/filipesaretta.png" />
           <div>
             <strong>Filipe Saretta</strong>
             <span>Front-end Developer</span>
