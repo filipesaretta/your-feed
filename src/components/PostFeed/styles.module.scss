@@ -104,16 +104,16 @@
     }
   }
 
-  & footer {
-    visibility: hidden;
-    max-height: 0;
-  }
+  // & footer {
+  //   visibility: hidden;
+  //   max-height: 0;
+  // }
 
-  &:focus-within footer {
-    visibility: visible;
-    max-height: none;
+  // &:focus-within footer {
+  //   visibility: visible;
+  //   max-height: none;
 
-  }
+  // }
 }
 
 .commentSection {
