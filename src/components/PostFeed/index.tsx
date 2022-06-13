@@ -4,26 +4,52 @@ import styles from './styles.module.scss'
 
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
-export function PostFeed({ author, content, publishedAt }) {
 
-  const [comments, setComments] = useState([])
+
+interface Author {
+
+  avatarURL: string;
+  name: string;
+  role: string;
+}
+
+interface Content {
+  type: 'paragraph' | 'link';
+  content: string;
+
+}
+
+interface PostFeedProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
+
+export function PostFeed({ author, content, publishedAt }: PostFeedProps) {
+
+  const [comments, setComments] = useState(['Nice Post'])
   const [newComment, setNewComment] = useState('')
 
-  function handleNewComment(e) {
+  function handleNewComment(e: FormEvent) {
     e.preventDefault();
     setComments([...comments, newComment])
     setNewComment('')
   }
 
-  function handleNewCommentChange(e) {
+  function handleNewCommentChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    e.target.setCustomValidity('')
     setNewComment(e.target.value)
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter((comment) => comment !== commentToDelete);
     setComments(commentsWithoutDeletedOne)
+  }
+
+  function handleInvalidSubmit(e: InvalidEvent<HTMLTextAreaElement>) {
+    e.target.setCustomValidity('Preencha esse campo!')
   }
 
 
@@ -34,6 +60,8 @@ export function PostFeed({ author, content, publishedAt }) {
     locale: ptBR,
     addSuffix: true
   })
+
+  const isNewCommentEmpty = newComment.length == 0;
 
   return (
     <article className={styles.post}>
@@ -58,14 +86,18 @@ export function PostFeed({ author, content, publishedAt }) {
         })}
       </div>
 
-      <form onSubmit={handleNewComment} className={styles.commentForm}>
+      <form onSubmit={handleNewComment}
+        className={styles.commentForm} >
         <p>Lascia il tuo Feedback</p>
         <textarea
           value={newComment}
           onChange={handleNewCommentChange}
-          placeholder='Lascia un commento' />
+          placeholder='Lascia un commento'
+          onInvalid={handleInvalidSubmit}
+          required
+        />
         <footer>
-          <button type='submit'>Pubblicare</button>
+          <button type='submit' disabled={isNewCommentEmpty}>Pubblicare</button>
         </footer>
       </form>
 
