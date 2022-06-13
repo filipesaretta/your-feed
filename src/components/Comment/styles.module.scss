@@ -12,32 +12,39 @@
   flex: 1;
 
   footer {
-    display: flex;
-    align-items: center;
-    color: var(--gray-100);
-    cursor: pointer;
-    margin-top: 1rem;
-    font-weight: 800;
+   
 
-    svg {
-      margin-right: 0.875rem;
+    button {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      color: var(--gray-100);
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: 800;
+      svg {
+        margin-right: 0.875rem;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+  
       &:hover {
-        font-weight: bold;
+        color: var(--white)
+      }
+     
+      &:active {
+        color: var(--green-300)
+      } 
+  
+      span::before {
+        content: '\2022';
+        padding: 0 0.3125rem;
       }
     }
 
-    &:hover {
-      color: var(--white)
-    }
-   
-    &:active {
-      color: var(--green-300)
-    } 
-
-    span::before {
-      content: '\2022';
-      padding: 0 0.3125rem;
-    }
+    
   }
 }
 

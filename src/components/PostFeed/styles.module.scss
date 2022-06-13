@@ -99,21 +99,14 @@
     cursor: pointer;
     color: var(--white);
     font-weight: 800;
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: var(--green-300);
     }
   }
+  button[type='submit']:disabled {
+    opacity: .5;
+  }
 
-  // & footer {
-  //   visibility: hidden;
-  //   max-height: 0;
-  // }
-
-  // &:focus-within footer {
-  //   visibility: visible;
-  //   max-height: none;
-
-  // }
 }
 
 .commentSection {
