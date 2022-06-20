@@ -32,7 +32,7 @@ export function Comment({ content, onDeleteComment }: Props) {
               <strong>
                 Filipe Saretta
               </strong>
-              <time title='09 jun de 2022 às 20:00' dateTime='2022-06-09 20:00'>Cerca de  1h atrás</time>
+              <time title='09 jun de 2022 às 20:00' dateTime='2022-06-09 20:00'>Cerca de 1h atrás</time>
             </div>
             <button onClick={handleDeleteComment} title='Delete Comment'>
               <Trash size={25} />

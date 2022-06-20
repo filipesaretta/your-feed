@@ -9,7 +9,6 @@ import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 
 interface Author {
-
   avatarURL: string;
   name: string;
   role: string;
